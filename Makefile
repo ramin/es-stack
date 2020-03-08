@@ -11,13 +11,11 @@ stop:
 	docker-compose -f $(DOCKER_COMPOSE_ENV_FILE) down
 
 .PHONY: reset
-reset:
-	stop
+reset: stop \
 	erase
 
 .PHONY: erase
-erase:
-	erase_logs
+erase: erase_logs \
 	erase_data
 
 .PHONY: erase_logs
